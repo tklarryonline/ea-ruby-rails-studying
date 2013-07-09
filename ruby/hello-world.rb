@@ -4,21 +4,40 @@
 =begin
 and also my first block comment too!
 =end
-class Greeter
+module Debug
+  def whoAmI?
+    "#{self.class.name} (\##{self.object_id}): #{self.to_s}"
+  end
+end
+
+class Photograph
+  include Debug
+
   def initialize name
     @name = name
   end
 
-  def name
+  def to_s
     @name
   end
 
-  def name= new_name
-    @name = new_name
-  end
 end
 
-g = Greeter.new("Larry")
-puts g.name
-g.name = "Luan"
-puts g.name
+class Other
+  include Debug
+
+  def initialize name
+    @name = name
+  end
+
+  def to_s
+    @name
+  end
+
+end
+
+ph = Photograph.new("Luan")
+ot = Other.new("Not Luan")
+
+puts ph.whoAmI?
+puts ot.whoAmI?
