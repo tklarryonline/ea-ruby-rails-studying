@@ -9,4 +9,7 @@ Time to say <%= link_to("Goodbye", say_goodbye_path) %>!
 <p>Time in one hour: <%= 1.hour.from_now.localtime %></p>
 <p><%= @result %>
 </p>
-
+<%=
+    animals = %w( ant bee cat dog elk )
+    animals.each {|animal| puts animal}
+%>
