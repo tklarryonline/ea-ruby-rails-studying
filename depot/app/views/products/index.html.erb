@@ -1,29 +1,23 @@
 <h1>Listing products</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Image url</th>
-    <th>Price</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<div class="row-fluid">
+<table class="products span8 table table-striped table-bordered">
 <% @products.each do |product| %>
   <tr>
-    <td><%= product.title %></td>
-    <td><%= product.description %></td>
-    <td><%= product.image_url %></td>
-    <td><%= product.price %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= image_tag product.image_url, class: 'img-rounded' %></td>
+    <td class="list_description">
+      <dl>
+        <dt><%= product.title %></dt>
+        <dd><%= strip_tags(product.description) %></dd>
+      </dl>
+    </td>
+    <td><%= product.price_string %></td>
+    <td><%= link_to 'Show', product, {:class=>"btn"} %>
+    <%= link_to 'Edit', edit_product_path(product), {:class=>"btn"} %>
+    <%= link_to 'Destroy', product, {:class=>"btn"}, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Product', new_product_path %>
+</div>
+<div class="row-fluid">
+  <%= link_to '<i class="icon-plus"></i> New Product'.html_safe, new_product_path, {:class=>"btn"} %>
+</div>
