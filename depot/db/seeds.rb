@@ -11,11 +11,31 @@ Product.delete_all
 # Create zero index product
 Product.create(title: 'Programming Ruby 1.9 & 2.0',
                description:
-                %{<p>
+                %{
                     Ruby is the fastest growing and most exciting dynamic
                     language out there. If you need to get working programs
                     delivered fast, you should add Ruby to your toolbox.
-                  </p>},
-               image_url: 'http://placeimg.com/300/300/any',
+                  },
+               image_url: 'http://placeimg.com/200/200/any',
+               price: 49.95)
+#...
+Product.create(title: 'Programming Ruby 1.9 & 2.0',
+               description:
+                %{
+                    Ruby is the fastest growing and most exciting dynamic
+                    language out there. If you need to get working programs
+                    delivered fast, you should add Ruby to your toolbox.
+                  },
+               image_url: 'http://placeimg.com/200/200/any',
+               price: 49.95)
+#...
+Product.create(title: 'Programming Ruby 1.9 & 2.0',
+               description:
+                %{
+                    Ruby is the fastest growing and most exciting dynamic
+                    language out there. If you need to get working programs
+                    delivered fast, you should add Ruby to your toolbox.
+                  },
+               image_url: 'http://placeimg.com/200/200/any',
                price: 49.95)
 #...
