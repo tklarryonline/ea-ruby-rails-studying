@@ -5,3 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+#...
+# Clean all products first
+Product.delete_all
+# Create zero index product
+Product.create(title: 'Programming Ruby 1.9 & 2.0',
+               description:
+                %{<p>
+                    Ruby is the fastest growing and most exciting dynamic
+                    language out there. If you need to get working programs
+                    delivered fast, you should add Ruby to your toolbox.
+                  </p>},
+               image_url: 'http://placeimg.com/300/300/any',
+               price: 49.95)
+#...
