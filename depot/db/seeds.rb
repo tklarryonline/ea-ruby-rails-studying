@@ -19,7 +19,7 @@ Product.create(title: 'Programming Ruby 1.9 & 2.0',
                image_url: 'http://placeimg.com/200/200/any',
                price: 49.95)
 #...
-Product.create(title: 'Programming Ruby 1.9 & 2.0',
+Product.create(title: 'Programming Ruby 1.9',
                description:
                 %{
                     Ruby is the fastest growing and most exciting dynamic
@@ -29,7 +29,7 @@ Product.create(title: 'Programming Ruby 1.9 & 2.0',
                image_url: 'http://placeimg.com/200/200/any',
                price: 49.95)
 #...
-Product.create(title: 'Programming Ruby 1.9 & 2.0',
+Product.create(title: 'Programming Ruby 2.0',
                description:
                 %{
                     Ruby is the fastest growing and most exciting dynamic
