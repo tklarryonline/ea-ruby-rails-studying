@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Depot</title>
-  <%= stylesheet_link_tag    "application", :media => "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+<title>Depot</title>
+<%= stylesheet_link_tag    "application", :media => "all", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+<%= csrf_meta_tags %>
 </head>
-<body>
-  <div class="container">
-    <%= yield %>
+<body class="<%= controller.controller_name %>">
+<div id="banner">
+  <h1><%= @page_title || "Pragmatic Bookshelf" %></h1>
+</div>
+<div id="columns" class="container-fluid">
+  <div class="row-fluid">
+    <div id="nav-bar" class="span1">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="">Questions</a></li>
+        <li><a href="">News</a></li>
+        <li><a href="">Contact</a></li>
+      </ul>
+    </div>
+    <div id="main" class="span11 row-fluid">
+      <%= yield %>
+    </div>
+    <div class="clear"></div>
   </div>
+</div>
 </body>
 </html>
