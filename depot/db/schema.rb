@@ -9,32 +9,32 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130715102530) do
+ActiveRecord::Schema.define(version: 20130715102530) do
 
-  create_table "carts", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "carts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "line_items", :force => true do |t|
+  create_table "line_items", force: true do |t|
     t.integer  "product_id"
     t.integer  "cart_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "line_items", ["cart_id"], :name => "index_line_items_on_cart_id"
-  add_index "line_items", ["product_id"], :name => "index_line_items_on_product_id"
+  add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id"
+  add_index "line_items", ["product_id"], name: "index_line_items_on_product_id"
 
-  create_table "products", :force => true do |t|
+  create_table "products", force: true do |t|
     t.string   "title"
     t.text     "description"
     t.string   "image_url"
-    t.decimal  "price",       :precision => 8, :scale => 2
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.decimal  "price",       precision: 8, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

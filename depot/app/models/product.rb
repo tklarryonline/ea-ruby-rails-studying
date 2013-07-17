@@ -11,12 +11,12 @@ class Product < ActiveRecord::Base
   end
 
   private
-  # ensure that there are no line items referencing this product
-  def ensure_not_referenced_by_any_line_item
-    if line_items.empty?
-      return true
+    # ensure that there are no line items referencing this product
+    def ensure_not_referenced_by_any_line_item
+      if line_items.empty?
+        return true
+      end
+      errors.add(:base, 'Line Items present')
+      return false
     end
-    errors.add(:base, 'Line Items present')
-    return false
-  end
 end
