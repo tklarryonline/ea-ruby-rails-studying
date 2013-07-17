@@ -105,8 +105,10 @@ DEPENDENCIES
   bootstrap-sass (~> 2.3.2.0)
   coffee-rails (~> 4.0.0)
   jquery-rails
+  minitest (>= 4.2)
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sqlite3
   turbolinks
+  tzinfo
   uglifier (>= 1.0.3)

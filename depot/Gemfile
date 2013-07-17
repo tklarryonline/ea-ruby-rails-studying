@@ -44,3 +44,8 @@ gem 'bootstrap-sass', '~> 2.3.2.0'
 
 # Use Turbolinks
 gem 'turbolinks'
+
+gem 'minitest', '>= 4.2'
+
+gem 'tzinfo'
+
