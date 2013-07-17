@@ -45,7 +45,7 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     product = Product.find(params[:product_id])
-    @line_item = @cart.line_items.build(product_params)
+    @line_item = @cart.line_items.build(product: product)
 
     respond_to do |format|
       if @line_item.save
@@ -86,8 +86,8 @@ class LineItemsController < ApplicationController
     end
   end
 
-  private
-    def product_params
-      params.require(:product).permit(:title, :description, :image_url, :price)
-    end
+  #private
+    #def product_params
+      #params.require(:product).permit(:title, :description, :image_url, :price)
+    #end
 end
