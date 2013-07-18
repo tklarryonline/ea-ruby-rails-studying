@@ -8,6 +8,8 @@
 #...
 # Clean all products first
 Product.delete_all
+Cart.delete_all
+LineItem.delete_all
 # Create zero index product
 Product.create(title: 'Programming Ruby 1.9 & 2.0',
                description:
