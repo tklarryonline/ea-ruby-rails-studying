@@ -1,7 +1,4 @@
 class CombineItemsInCart < ActiveRecord::Migration
-  def change
-  end
-
   def up
     # replace multiple items for a single product in a cart with a single item
     Cart.all.each do |cart|
@@ -18,6 +15,16 @@ class CombineItemsInCart < ActiveRecord::Migration
           item.quantity = quantity
           item.save!
         end
+      end
+    end
+  end
+
+  def down
+    # split items with quantity > 1 into multiple items
+    LineItem.where("quantity>1").each do |line_item|
+      # add individual items
+      line_item.quantity.times do
+
       end
     end
   end
