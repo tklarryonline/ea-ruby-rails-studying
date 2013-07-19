@@ -1,4 +1,6 @@
 class CartsController < ApplicationController
+  before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
   # GET /carts
   # GET /carts.json
   def index
@@ -13,8 +15,6 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
-    @cart = Cart.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @cart }
@@ -34,7 +34,6 @@ class CartsController < ApplicationController
 
   # GET /carts/1/edit
   def edit
-    @cart = Cart.find(params[:id])
   end
 
   # POST /carts
@@ -56,8 +55,6 @@ class CartsController < ApplicationController
   # PUT /carts/1
   # PUT /carts/1.json
   def update
-    @cart = Cart.find(params[:id])
-
     respond_to do |format|
       if @cart.update_attributes(params[:cart])
         format.html { redirect_to @cart, notice: 'Cart was successfully updated.' }
@@ -72,7 +69,6 @@ class CartsController < ApplicationController
   # DELETE /carts/1
   # DELETE /carts/1.json
   def destroy
-    @cart = Cart.find(params[:id])
     @cart.destroy
 
     respond_to do |format|
@@ -80,4 +76,14 @@ class CartsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    def set_cart
+      @cart = Cart.find(params[:id])
+    end
+
+    def invalid_cart
+      logger.error "Attempt to access invalid cart #{params[:id]}"
+      redirect_to store_url, notice: 'Invalid cart'
+    end
 end

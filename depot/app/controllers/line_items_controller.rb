@@ -17,8 +17,6 @@ class LineItemsController < ApplicationController
   # GET /line_items/1
   # GET /line_items/1.json
   def show
-    @line_item = LineItem.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @line_item }
@@ -38,7 +36,6 @@ class LineItemsController < ApplicationController
 
   # GET /line_items/1/edit
   def edit
-    @line_item = LineItem.find(params[:id])
   end
 
   # POST /line_items
@@ -61,8 +58,6 @@ class LineItemsController < ApplicationController
   # PUT /line_items/1
   # PUT /line_items/1.json
   def update
-    @line_item = LineItem.find(params[:id])
-
     respond_to do |format|
       if @line_item.update_attributes(params[:line_item])
         format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
@@ -77,7 +72,6 @@ class LineItemsController < ApplicationController
   # DELETE /line_items/1
   # DELETE /line_items/1.json
   def destroy
-    @line_item = LineItem.find(params[:id])
     @line_item.destroy
 
     respond_to do |format|
@@ -86,7 +80,10 @@ class LineItemsController < ApplicationController
     end
   end
 
-  #private
+  private
+    def set_line_item
+      @line_item = LineItem.find(params[:id])
+    end
     #def product_params
       #params.require(:product).permit(:title, :description, :image_url, :price)
     #end
