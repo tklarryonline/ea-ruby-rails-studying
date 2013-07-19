@@ -84,7 +84,8 @@ class LineItemsController < ApplicationController
     def set_line_item
       @line_item = LineItem.find(params[:id])
     end
-    #def product_params
-      #params.require(:product).permit(:title, :description, :image_url, :price)
-    #end
+
+    def line_item_params
+      params.require(:line_item).permit(:product_id)
+    end
 end
