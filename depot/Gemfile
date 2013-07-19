@@ -50,3 +50,5 @@ gem 'minitest', '>= 4.2'
 gem 'tzinfo'
 
 gem 'protected_attributes'
+
+
