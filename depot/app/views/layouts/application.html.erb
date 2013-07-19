@@ -21,7 +21,12 @@
       </ul>
     </div>
     <div id="main" class="span11 row-fluid">
-      <%= yield %>
+      <div id="mainPanel" class="span8">
+        <%= yield %>
+      </div>
+      <div id="cart" class="span4 row-fluid">
+        <%= render @cart %>
+      </div>
     </div>
     <div class="clear"></div>
   </div>

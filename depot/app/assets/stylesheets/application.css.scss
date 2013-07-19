@@ -40,6 +40,11 @@ a {
   #main {
     background-color: white;
     padding-left: 20px;
+    border-bottom: 1px solid #141;
+
+    #mainPanel {
+      border-right: 1px solid #141;
+    }
   }
 
   #nav-bar {
